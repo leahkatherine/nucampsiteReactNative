@@ -14,7 +14,7 @@ const FeaturedItem = ({ item }) => {
                         <Text
                             style={{
                                 color:'white', 
-                                textAlign:' center',
+                                textAlign:'center',
                                 fontSize:20
                             }}
                         >
@@ -36,7 +36,7 @@ const HomeScreen = () => {
 
     const featCampsite = campsites.find((item) => item.featured);
     const featPromotion = promotions.find((item) => item.featured);
-    const featPartner= partners.find((item) => item.partners);
+    const featPartner= partners.find((item) => item.featured);
 
     return (
         <ScrollView>
@@ -44,7 +44,7 @@ const HomeScreen = () => {
             <FeaturedItem item={featPromotion}/>
             <FeaturedItem item={featPartner}/>
         </ScrollView>
-    );;
+    );
 };
 
 export default HomeScreen;
