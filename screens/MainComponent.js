@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
         height: 140, 
         alignItems:'center', 
         justifyContent: 'center',
-        fe: 1, 
+        flex: 1, 
         flexDirection:'row',
     }, 
     drawerHeaderText:{
