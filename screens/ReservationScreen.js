@@ -63,7 +63,7 @@ const ReservationScreen = () => {
                 <Text style={styles.formLabel}>Date:</Text>
                 <Button
                     onPress={()=> setShowCalendar(!showCalendar)}
-                    title={date.toLocaleDateStrong('en-US')}
+                    title={date.toLocaleDateString('en-US')}
                     color='5637DD'
                     accessibilityLabel='Tap me to select a reservation date'
                 />
