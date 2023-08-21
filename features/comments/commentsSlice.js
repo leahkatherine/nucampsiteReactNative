@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { baseUrl } from '../../shared/baseUrl';
 
+
 export const fetchComments = createAsyncThunk(
     'comments/fetchComments',
     async () => {
@@ -15,10 +16,32 @@ export const fetchComments = createAsyncThunk(
     }
 );
 
+export const postComment = createAsyncThunk(
+    'comments/postComment',
+    async (payload, { dispatch, getState }) => {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const { comments } = getState();
+                const newComment = {
+                    ...payload,
+                    date: new Date().toISOString(),
+                    id: comments.commentsArray.length
+                };
+                dispatch(commentsSlice.actions.addComment(newComment));
+                resolve(newComment);
+            }, 2000);
+        });
+    }
+);
+
 const commentsSlice = createSlice({
     name: 'comments',
     initialState: { isLoading: true, errMess: null, commentsArray: [] },
-    reducers: {},
+    reducers: {
+        addComment: (state, action) => {
+            state.commentsArray = [...state.commentsArray, action.payload];
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchComments.pending, (state) => {
@@ -35,7 +58,11 @@ const commentsSlice = createSlice({
                     ? action.error.message
                     : 'Fetch failed';
             });
+
     }
 });
 
+
+
+export const { addComment } = commentsSlice.actions;
 export const commentsReducer = commentsSlice.reducer;
