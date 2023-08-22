@@ -35,7 +35,7 @@ const ReservationScreen = () => {
         console.log('date: ', date);
         setCampers(1); 
         setHikeIn(false);
-        setDate(newDate());
+        setDate(new Date());
         setShowCalendar(false);
     }
 
@@ -70,7 +70,7 @@ const ReservationScreen = () => {
                 <Button
                     onPress={()=> setShowCalendar(!showCalendar)}
                     title={date.toLocaleDateString('en-US')}
-                    color='5637DD'
+                    color='#5637DD'
                     accessibilityLabel='Tap me to select a reservation date'
                 />
             </View>

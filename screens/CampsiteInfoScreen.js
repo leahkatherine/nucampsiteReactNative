@@ -42,6 +42,7 @@ const CampsiteInfoScreen = ({ route }) => {
     const renderCommentItem = ({ item }) => {
         return (
             <View style={styles.commentItem}>
+                <Text style={{ fontSize: 14 }}>{item.text}</Text>
                 <Rating
                 readonly
                 initialRating={item.rating}
